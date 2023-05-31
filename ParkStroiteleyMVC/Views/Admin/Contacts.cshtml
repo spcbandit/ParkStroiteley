@@ -1,0 +1,54 @@
+﻿@{ Layout = "_LayoutAdmin"; }
+@model ParkStroiteleyMVC.Models.ObjectDTO.ContactsDTO;
+    <div class="p-1" style="max-width: 1200px; margin: 0 auto;">
+        <div class="justify-content-between pb-3 pt-3 pl-1 pr-1" style="display: flex;">
+            <h3>Контакты</h3>
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <label for="с1">Главная страница сайта</label>
+                <input name="mainurlsite" type="text" class="form-control" id="с1" value="@(Model == null ? "" : Model.MainURLSite)">
+            </div>
+            <div class="form-group">
+                <label for="с2">Номер телефона</label>
+                <input name="phonenumber" type="text" class="form-control" id="с2" value="@(Model == null ? "" : Model.PhoneNumber)">
+            </div>
+            <div class="form-group">
+                <label for="с3">Номер телефона заместителя</label>
+                <input name="phonenumberzam" type="text" class="form-control" id="с3" value="@(Model == null ? "" : Model.PhoneNumberZam)">
+            </div>
+            <div class="form-group">
+                <label for="с4">Email</label>
+                <input name="email" type="text" class="form-control" id="с4" value="@(Model == null ? "" : Model.Email)">
+            </div>
+            <div class="form-group">
+                <label for="с5">Ссылка на группу VK</label>
+                <input name="linkvk" type="text" class="form-control" id="с5" value="@(Model == null ? "" : Model.LinkVK)">
+            </div>                                             
+            <div class="form-group">                           
+                <label for="с6">Ссылка на профиль Instagram</label>                       
+                <input name="linkinst" type="text" class="form-control" id="с6" value="@(Model == null ? "" : Model.LinkInst)">
+            </div>                                             
+            <div class="form-group">                           
+                <label for="с7">Ссылка на профиль Facebook</label>                       
+                <input name="linkfacebook" type="text" class="form-control" id="с7" value="@(Model == null ? "" : Model.LinkFacebook)">
+            </div>                                             
+            <div class="form-group">                           
+                <label for="с8">Ссылка на профиль Одноклассники</label>                       
+                <input name="linkok" type="text" class="form-control" id="с8" value="@(Model == null ? "" : Model.LinkOK)">
+            </div>                                             
+            <div class="form-group">                           
+                <label for="с9">Телефон WhatsApp</label>                       
+                <input name="phonewhatapp" type="text" class="form-control" id="с9" value="@(Model == null ? "" : Model.PhoneWhatsUp)">
+            </div>
+            <div class="form-group">
+                <label for="с10">ФИО администратора</label>
+                <input name="administratorfio" type="text" class="form-control" id="с10" value="@(Model == null ? "" : Model.AdministratorFIO)">
+            </div>
+            <div class="form-group">
+                <label for="с11">ФИО заместителя администратора</label>
+                <input name="administratorfiozam" type="text" class="form-control" id="с11" value="@(Model == null ? "" : Model.AdministratorFIOZam)">
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+</div>

@@ -1,0 +1,113 @@
+﻿@{ Layout = "_Layout"; }
+@model ParkStroiteleyMVC.Models.ModelPages.IndexModel;
+@using ParkStroiteleyMVC.Models.Extensions;
+
+<div class="container">
+    <div class="row">
+        <div class="col pb-4 mt-3">
+            <h2>Последние новости парка</h2>
+        </div>
+    </div>
+    @for (int i = 0; Model.News != null && i < Model.News.Count; i++)
+    {
+        if (Model.News[i].Blocks == null)
+            continue;
+
+        <div class="row new pt-3 pb-3 mb-3">
+            @if (@Model.News[i].GetPreview().Image != null)
+            {
+            <div class="col-md-6">
+                <img class="img-fluid" width="640" height="480" src="/images/@Model.News[i].GetPreview().Image">
+            </div>
+            }
+            <div class="col-md pt-2" style="padding-bottom: 30px;word-wrap: break-word;">
+                <p> @Model.News[i].GetPreview().Text</p>
+                <a class="mycol5" href="/Home/CardNews?id=@Model.News[i].Id">Читать дальше</a>
+                <div class="row footernews">
+                    <span class="pl-3">@Model.News[i].DatePublish.ToShortDateString()</span>
+                    <span class="pr-3">
+                        @{
+                            switch (Model.News[i].Type)
+                            {
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Important:
+                                    <span class="badge badge-danger">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Daily:
+                                    <span class="badge badge-primary">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Weekly:
+                                    <span class="badge badge-info">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Event:
+                                    <span class="badge badge-success">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        }
+
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col pb-4 mt-3">
+            <h2>Последние фото парка</h2>
+        </div>
+    </div>
+    <div class="row">
+
+        <div align="center">
+            <button class="btn btn-default filter-button" data-filter="all">Все</button>
+            <button class="btn btn-default filter-button" data-filter="Nature">Природа</button>
+            <button class="btn btn-default filter-button" data-filter="Bird">Птицы</button>
+            <button class="btn btn-default filter-button" data-filter="Landscape">Пейзаж</button>
+            <button class="btn btn-default filter-button" data-filter="Sport">Спорт</button>
+            <button class="btn btn-default filter-button" data-filter="Relax">Отдых</button>
+        </div>
+    </div>
+    <div class="row">
+        <br />
+        @foreach (var img in Model.Gallery)
+        {
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter @img.Type.GetEnumMemberAttributeValue()">
+                <img src="@img.NameFile.GetFullPathImg(img.Size)" class="img-responsive">
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-12">
+            <div class="well myshadow p-3"  style="margin-top: 10%;">
+                <h3>Оправьте нам вопрос или предложение</h3>
+                <form role="form" id="contactForm" data-toggle="validator" class="shake mt-3" action="/Home/SendMessage">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="name" class="h4">Как к вам обращаться?</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя" required data-error="NEW ERROR MESSAGE">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="email" class="h4">Ваш контакт для ответа</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Введите почту или телефон" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="h4 ">Ваше сообщение</label>
+                        <textarea id="message" class="form-control" rows="5" name="message" placeholder="Введите ваше сообщение" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Отправить</button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

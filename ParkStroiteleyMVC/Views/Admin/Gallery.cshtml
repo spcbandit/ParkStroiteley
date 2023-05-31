@@ -1,0 +1,122 @@
+﻿@{ Layout = "_LayoutAdmin"; }
+@model ParkStroiteleyMVC.Models.ModelPages.GalleryModel;
+    <div class="p-1" style="max-width: 1200px; margin: 0 auto;">
+        <div class="justify-content-between pb-3 pt-3 pl-1 pr-1" style="display: flex;">
+            <h3>Галерея</h3>
+            <button class="btn btn-success" onclick="openmodal();">&#10010; Добавить фото</button>
+        </div>
+        <form>
+            <div class="row m-0" style="align-items:center;">
+                <span>Категория</span>
+
+                <select class="form-control mb-1 ml-2" name="type" style="display: inline; max-width: 200px;">
+                    <option value="0">Все</option>
+
+
+                    @if (Model.Type == ParkStroiteleyMVC.Models.Enums.ImageGalleryType.Nature)
+                    {
+                        <option value="1" selected>Природа</option>
+                    }
+                    else
+                    {
+                        <option value="1">Природа</option>
+                    }
+
+                    @if (Model.Type == ParkStroiteleyMVC.Models.Enums.ImageGalleryType.Bird)
+                    {
+                        <option value="2" selected>Птицы</option>
+                    }
+                    else
+                    {
+                        <option value="2">Птицы</option>
+                    }
+
+                    @if (Model.Type == ParkStroiteleyMVC.Models.Enums.ImageGalleryType.Landscape)
+                    {
+                        <option value="3" selected>Пейзаж</option>
+                    }
+                    else
+                    {
+                        <option value="3">Пейзаж</option>
+                    }
+
+                    @if (Model.Type == ParkStroiteleyMVC.Models.Enums.ImageGalleryType.Sport)
+                    {
+                        <option value="4" selected>Спорт</option>
+                    }
+                    else
+                    {
+                        <option value="4">Спорт</option>
+                    }
+
+                    @if (Model.Type == ParkStroiteleyMVC.Models.Enums.ImageGalleryType.Relax)
+                    {
+                        <option value="5" selected>Отдых</option>
+                    }
+                    else
+                    {
+                        <option value="5">Отдых</option>
+                    }
+
+                </select>
+                <button class="btn btn-sm btn-secondary mb-1 ml-2" style="max-width: 200px;">Показать</button>
+            </div>
+        </form>
+    <div class="row m-0 p-0">
+        @foreach (var item in Model.Imgs)
+        {
+            <div class="col-xl-4 col-lg-4 col-md-6 p-0 cell" style="align-self: center;">
+                <div class="trash" title="Удалить фото" id_image="@item.Id"></div>
+                <img src="/gallery/@item.NameFile" style="width: 100%;" />
+            </div>
+        }
+
+    </div>
+</div>
+<div class="modal fade" id="modal">
+    <div class="modal-dialog m-2" style="max-width: none;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalnewTitle">Добавление фото</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header bg-white ">
+                        <div class="justify-content-between" style="display: flex;">
+                            <label>Выберите раздел для загрузки фотографий</label>
+                            <select id="phototype" class="form-control" style="width: auto;">
+                                <option value="0">Все</option>
+                                <option value="1">Природа</option>
+                                <option value="2">Птицы</option>
+                                <option value="3">Пейзаж</option>
+                                <option value="4">Спорт</option>
+                                <option value="5">Отдых</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="newcontainer">
+                            <div type="image" class="mb-2">
+                                <div class="m-2 row justify-content-around">
+                                    <div title="Нажмите чтобы добавить" onclick="addimage(this)" style="display: flex; justify-content: center; cursor: pointer;">
+                                        <input id="files" type="file" multiple style="display: none;">
+                                        <img class="img-fluid" src="/admin/adding.png">
+                                    </div>
+                                </div>
+                                <div id="addingfiles" class="text-center mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" onclick="$('#modal').modal('hide');">Закрыть</button>
+                <button type="button" class="btn btn-warning" onclick="clearfiles();">Очистить список</button>
+                <button type="button" class="btn btn-success" onclick="send();">Загрузить</button>
+            </div>
+        </div>
+    </div>
+</div>

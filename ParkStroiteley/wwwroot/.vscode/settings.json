@@ -1,0 +1,4 @@
+{
+    "diffEditor.renderIndicators": false,
+    "terminal.integrated.environmentChangesIndicator": "off"
+}

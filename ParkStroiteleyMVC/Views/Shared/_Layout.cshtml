@@ -1,0 +1,173 @@
+﻿@model ParkStroiteleyMVC.Models.ModelPages.LayoutModel;
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Парк строителей</title>
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link rel="stylesheet" href="~/assets/fontawesome/css/font-awesome.min.css">
+    @*<script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>*@
+</head>
+
+<body class="bg-light" style="height: 100%;">
+    <nav class="navbar navbar-expand-lg bg-light myshadow sticky-top" id="content">
+        <a class="navbar-brand" href="/Home/Index">
+            <img height="40px" src="~/assets/img/Парк_строителей_логотип_отдельно.png">
+            <img height="40px" src="~/assets/img/Парк_строителей_логотип_текст.png">
+        </a>
+        <button class="navbar-toggler" style="border-color: black;" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span style="line-height: 25px;">&#127795;</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="navbarlink" href="/Home/News">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarlink" href="/Home/About">О парке</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarlink" href="/Home/Map">Карта парка</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarlink" href="/User/Auth">Личный кабинет</a>
+                </li>
+            </ul>
+            <!-- Weather informer by meteoservice.ru -->
+            <a id="ms-informer-link-10e6a0baeb58a274db99a33e57ba41dd" target="_blank" class="ms-informer-link"
+               href="https://www.meteoservice.ru/weather/overview/orsk">Погода в Орске</a>
+            <script class="ms-informer-script"
+                    src="https://www.meteoservice.ru/informer/script/10e6a0baeb58a274db99a33e57ba41dd"></script>
+            <!-- End -->
+        </div>
+
+    </nav>
+    <img src="~/images/парк_баннер_вк_744.jpg" style="width: 100%; padding: 10px 0" />
+    @*<div class="wrapper-slider" id="main2">
+            <div class="item-door" id="right"></div>
+            <div class="item-door" id="left"></div>
+            <div id="preloader">
+                <div id="loader"></div>
+            </div>
+        </div>
+        </div>*@
+    <div style="height: 100vh;" class="text-center">
+        <div id="slide_1" class="main-banner slide_1" style="display: block;"></div>
+        <div id="slide_2" class="main-banner slide_2"></div>
+        <div id="slide_3" class="main-banner slide_3"></div>
+        <div id="slide_4" class="main-banner slide_4"></div>
+
+        <div class="main-banner-text p-2">
+            <div class="main-banner-text-icon"></div>
+            <div class="main-banner-text-header">@Model.NamePage</div>@{ /* ПАРК СТРОИТЕЛЕЙ*/ }
+            <div class="main-banner-text-parag">@Model.AboutPage</div>@{ /*Одно из лучших мест времяпрепровождения в г.Орске*/ }
+        </div>
+    </div>
+
+
+    @RenderBody()
+
+
+
+    <div style="height: 100px;"></div>
+    <!--отступ-->
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4 mybg0 myshadow">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+            <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-5 mx-auto">
+                    <div class="row">
+                        <img class="img-center" height="150px" src="~/assets/img/Парк_строителей_логотип.png">
+                    </div>
+                    <div class="row">
+                        @*<p class="p-1">
+                                Парк Строителей — это парк культуры и отдыха регионального уровня, одно из красивейших мест
+                                Орска. Пространство для отдыха, просвещения, спорта, танцев и игр на свежем воздухе.
+                                Новые площадки парка, созданные в духе современных тенденций дизайна, насыщенная программа
+                                мероприятий и внимание к людям — все это превратило Парк в эпицентр жизни нашего города,
+                                сделав его одной из главных точек притяжения как для молодёжи, так и для более взрослой,
+                                семейной аудитории.
+                            </p>*@
+
+                        <div class="col-md-12 mx-auto ml-12">
+                            
+                        </div>
+                    </div>
+                    <!--<div class="row m-1">
+                        <img class="img-center" height="40px" src="../Design/Логотип/Парк_строителей_логотип_текст.png">
+                    </div>-->
+
+                </div>
+                <!-- Grid column -->
+                <hr class="clearfix w-100 d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-5 mx-auto">
+                    <!-- Links -->
+                    <h5 class="mt-3 mb-4">Полезные ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li class="pb-1">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> email: <a href="mailto:park-stroit@mail.ru" target="_blank"> park-stroit@mail.ru</a>
+                        </li>
+                        <li class="pb-1">
+                            <i class="fa fa-vk" aria-hidden="true"></i> Мы в ВК: <a href="https://vk.com/park_stroitelei_orsk" target="_blank"> https://vk.com/park_stroitelei_orsk</a>
+                        </li>
+                        <li class="pb-1">
+                            <i class="fa fa-instagram" aria-hidden="true"></i> Мы в инстаграм: <a href="https://www.instagram.com/park_stroitelei_orsk/" target="_blank">park_stroitelei_orsk</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="clearfix w-100 d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-2 mx-auto text-center">
+                    <!-- Links -->
+                    <h5 class="mt-3 mb-4">Погода</h5>
+                    <a href="https://clck.yandex.ru/redir/dtype=stred/pid=7/cid=1228/*https://yandex.ru/pogoda/11091"
+                       target="_blank">
+                        <img src="https://info.weather.yandex.net/11091/3.ru.png?domain=ru" border="0"
+                             alt="Яндекс.Погода" /><img width="1" height="1"
+                                                        src="https://clck.yandex.ru/click/dtype=stred/pid=7/cid=1227/*https://img.yandex.ru/i/pix.gif"
+                                                        alt="" border="0" />
+                    </a>
+                </div>
+
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            ©
+            <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright:<a href="https://afcstudio.ru/"> LarionovDev</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <div id="weusecookie" class="mybg5 cookie p-2">
+        <p class="mycol1 text-center m-0">
+            Обычное дело: мы используем <a href="/Home/AboutCookie" style="color: cyan;">Cookie</a>
+            <a class="btn btn-info ml-3">Хорошо</a>
+        </p>
+    </div>
+    <!-- Cookie Banner -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquerry.cookie.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>

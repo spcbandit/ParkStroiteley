@@ -1,0 +1,73 @@
+﻿@{ Layout = "_Layout";}
+@model ParkStroiteleyMVC.Models.ModelPages.NewsModel;
+@using ParkStroiteleyMVC.Models.Extensions;
+
+<h1 class="text-center mt-5 mb-5">Новости</h1>
+
+<div class="container">
+
+
+    @for (int i = 0; Model.News != null && i < Model.News.Count; i++)
+    {
+        if (Model.News[i].Blocks == null)
+            continue;
+
+        <div class="row new pt-3 pb-3 mb-3">
+            @if (Model.News[i].GetPreview().Image != null)
+            {
+            <div class="col-md-6">
+                <img class="img-fluid" width="640" height="480" src="/images/@Model.News[i].GetPreview().Image">
+            </div>
+            }
+            <div class="col-md pt-2" style="padding-bottom: 30px;">
+                <p> @Model.News[i].GetPreview().Text</p>
+                <a class="mycol5" href="/Home/CardNews?id=@Model.News[i].Id">Читать дальше</a>
+                <div class="row footernews">
+                    <span class="pl-3">@Model.News[i].DatePublish</span>
+                    <span class="pr-3">
+                        @{
+                            switch (Model.News[i].Type)
+                            {
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Important:
+                                    <span class="badge badge-danger">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Daily:
+                                    <span class="badge badge-primary">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Weekly:
+                                    <span class="badge badge-info">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                case ParkStroiteleyMVC.Models.Enums.NewsType.Event:
+                                    <span class="badge badge-success">  @Model.News[i].Type.GetEnumMemberAttributeValue()  </span>
+
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        }
+
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col">
+            <nav aria-label="">
+                <ul class="pagination justify-content-center">
+                    @*<li class="page-item"><a class="page-link" href="">Назад</a></li>*@
+                    <li class="page-item"><a class="page-link" href="/Home/News?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/News?page=2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/News?page=3">3</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/News?page=4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/News?page=5">5</a></li>
+                    @*<li class="page-item"><a class="page-link" href="#">Вперед</a></li>*@
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

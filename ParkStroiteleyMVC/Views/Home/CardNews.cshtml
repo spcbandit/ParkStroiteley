@@ -1,0 +1,98 @@
+﻿@{ Layout = "_Layout";}
+@model ParkStroiteleyMVC.Models.ModelPages.CardNewsModel;
+@using ParkStroiteleyMVC.Models.Extensions;
+<div class="container fullnew pt-4 mt-4 pb-4">
+    <div class="row headernews pt-4 pb-4">
+        <span class="pl-3">@Model.News.DatePublish.ToShortDateString()</span>
+        <span class="pr-3">
+            @{
+                switch (Model.News.Type)
+                {
+                    case ParkStroiteleyMVC.Models.Enums.NewsType.Important:
+                        <span class="badge badge-danger">  @Model.News.Type.GetEnumMemberAttributeValue()  </span>
+                        break;
+                    case ParkStroiteleyMVC.Models.Enums.NewsType.Daily:
+                        <span class="badge badge-primary">  @Model.News.Type.GetEnumMemberAttributeValue()  </span>
+
+                        break;
+                    case ParkStroiteleyMVC.Models.Enums.NewsType.Weekly:
+                        <span class="badge badge-info">  @Model.News.Type.GetEnumMemberAttributeValue()  </span>
+
+                        break;
+                    case ParkStroiteleyMVC.Models.Enums.NewsType.Event:
+                        <span class="badge badge-success">  @Model.News.Type.GetEnumMemberAttributeValue()  </span>
+
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        </span>
+    </div>
+    <h4 class="mycol6 mb-4">@Model.News.Header</h4>
+    @foreach (var block in Model.News.Blocks)
+    {
+        switch (block.Type)
+        {
+            case ParkStroiteleyMVC.Models.Enums.BlockType.Text:
+                <p>
+                    @block.Text;
+                </p>
+                break;
+            case ParkStroiteleyMVC.Models.Enums.BlockType.Image:
+                <div class="row w-100 mr-0 ml-0">
+                  <img class="img-center img-fluid" src="/images/@block.ImageURL">
+                  <span class="w-100 text-center mb-4">@block.ImageAbout</span>
+                </div>
+                
+                break;
+            case ParkStroiteleyMVC.Models.Enums.BlockType.Video:
+                <iframe  style="width:100%; height:600px;"  src="@block.VideoLink" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                break;
+            default:
+                break;
+        }
+    }
+ 
+<div class="fullnew p-4 mybg1">
+    <h4 class="mb-4">Оставьте ваш комментарий</h4>
+    <form onsubmit="return false;" action="/Home/PostComment" id="sendCommentForm">
+        <input type="hidden" name="id" value="@Model.News.Id" />
+        <div class="mb-2">
+            <label>Никнейм</label>
+            <input class="ml-1 mr-4 pl-1" style="outline: none; border: none; border-bottom: 1px solid black; background-color: transparent;" type="text" name="nickname" value="Аноним" required placeholder="Аноним">
+        </div>
+        <div class="mb-2">
+            <label>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input class="ml-1 mr-4 pl-1" style="outline: none; border: none; border-bottom: 1px solid black; background-color: transparent;" type="email" name="email" required placeholder="example@email.com">
+        </div>
+        <textarea class="w-100 p-1 mt-2 mb-2" rows="3" style="margin: 0 auto;   outline: none; border: none; border-bottom: 1px solid black; background-color: transparent;" placeholder="Текст комментария" name="comment"></textarea>
+        <button onclick="submitForm('#sendCommentForm');" class="btn btn-success mb-2">Отправить мой комментарий</button>
+    </form>
+    <small style="font-family: cursive;">* Комментарий будет добавлен после одобрения\редактирования модератором</small>
+    <div style="height: 50px;"></div><!--отступ-->
+    <p>Все комментарии:</p>
+    @for (int i = Model.News.Comments.Count - 1; i >= 0; i--)
+    {
+        <div class="p-2 m-2">
+            <div class="row" style="line-height: 50px;">
+                <img style="width: 50px;" src="assets/img/man_icon (1).png">
+                <strong>&nbsp @Model.News.Comments[i].UserName</strong>
+                <span>&nbsp @Model.News.Comments[i].DateAdd</span>
+            </div>
+            <p style="padding-left: 50px;">@Model.News.Comments[i].Comment</p>
+        </div>
+    }
+</div>
+</div>
+<script>
+    function submitForm(form) {
+        var url = $(form).attr("action");
+        var formData = $(form).serializeArray();
+        $.post(url, formData).done(function (data) {
+            alert(data);
+        });
+    }
+</script>

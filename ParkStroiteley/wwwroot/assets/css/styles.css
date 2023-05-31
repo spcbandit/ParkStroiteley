@@ -1,0 +1,221 @@
+.main-banner
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    filter: blur(3px);
+    background-position: center bottom;    
+    display: none;
+    transition: display  1s ease;
+}
+.slide_1
+{
+    background-image: url(/assets/img/fotos/slide_0.jpg);
+}
+.slide_2
+{
+    background-image: url(/assets/img/fotos/slide_1.jpg);
+}
+.slide_3
+{
+    background-image: url(/assets/img/fotos/slide_2.jpg);
+}
+.slide_4
+{
+    background-image: url(/assets/img/fotos/slide_3.jpg);
+}
+.active{
+    display: block;
+}
+
+.main-banner-text
+{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 70%;
+    width: 70%;
+    z-index: 10;
+    /* padding-top: 2%; */
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    top: 15%;
+    left: 15%;
+    background-color: rgba(28, 28, 28, 0.7);
+
+    animation: main-banner-text ease 3s;
+    -webkit-animation: main-banner-text ease 3s;
+    -moz-animation: main-banner-text ease 3s;
+    -o-animation: main-banner-text ease 3s;
+    -ms-animation: main-banner-text ease 3s;
+  
+}
+
+@keyframes main-banner-text {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes main-banner-text {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes main-banner-text {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes main-banner-text {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes main-banner-text {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+.main-banner-text-icon
+{
+    left: 40%;
+    height: 240px;
+    width: 250px;
+    background-size: cover;
+    background-position: center bottom;
+    background-image: url(/assets/img/Парк_строителей_логотип_отдельно.png);
+}
+.main-banner-text-header
+{
+    color: white;
+    font-size: 90px;
+    font-family: 'Impact';
+    letter-spacing: 3px;
+}
+.main-banner-text-parag
+{
+    font-family: 'Arial Black';
+    color: white;
+    font-size: 35px;
+}
+.myshadow
+{
+    box-shadow:0 0 20px 0px rgba(27, 26, 26, 0.5);
+}
+.cookie
+{
+    position: fixed;
+    bottom: 0;
+    display: none;    
+    width: 100%;
+    z-index: 9999;
+    box-shadow:0 0 20px 0px rgba(27, 26, 26, 0.5);
+}
+.navbarlink
+{
+    line-height: 60px;
+    padding-left: 8px;
+}
+.new:hover
+{
+    box-shadow:0 0 20px 0px rgba(50, 50, 50, 0.5);
+    transition: 0.7s;
+}
+.new
+{
+    background-color: #f5f2ea;
+    box-shadow:0 0 10px 0px rgba(50, 50, 50, 0.5);
+}
+.fullnew
+{
+    background-color: #f5f2ea;
+    box-shadow:0 0 20px 0px rgba(27, 26, 26, 0.5);
+}
+.img-center
+{
+    margin: 0 auto;
+}
+a, h1, h2, h3, h4, h5, h6
+{
+    color: #313131;
+}
+a:hover
+{
+    color: #3ab75c; 
+}
+.mycol0
+{
+    color: #f5f2ea;
+}
+.mycol1
+{
+    color: #f3f3f0;
+}
+.mycol2
+{
+    color: #e2f7e2;
+}
+.mycol3
+{
+    color: #f4e8e6;
+}
+.mycol4
+{
+    color: #3ab75c;
+}
+.mycol5
+{
+    color: #00334e;
+}
+.mycol6
+{
+    color: #313131;
+}
+.mybg0
+{
+    background-color: #f5f2ea;
+}
+.mybg1
+{
+    background-color: #f3f3f0;
+}
+
+.mybg2
+{
+    background-color: #e2f7e2;
+}
+.mybg3
+{
+    background-color: #f4e8e6;
+}
+.mybg4
+{
+    background-color: #3ab75c;
+}
+.mybg5
+{
+    background-color: #00334e;
+}
+.mybg6
+{
+    background-color: #313131;
+}
+.footernews
+{
+    height: 10px;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+}
+.headernews
+{
+    height: 10px;
+    align-content: center;
+    justify-content: space-between;
+}

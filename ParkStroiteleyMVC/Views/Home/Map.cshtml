@@ -1,0 +1,21 @@
+﻿@{ Layout = "_Layout";}
+@model ParkStroiteleyMVC.Models.ModelPages.MapModel;
+<h1 class="text-center mt-5 mb-5">Карта парка</h1>
+<div class="container">
+    <div class="fullnew">
+        <div class="p-3">
+            <img style="width: 100%;" src="~/assets/img/park_map.jpg">
+        </div>
+        <div class="p-3">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae71957cc84b8af2398732934850a7a7c0c00468004c714793304ca50b1e29213&amp;width=100%&amp;height=625&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+        <div class="p-3 text-center">
+            <h3 class="mb-2">Контакты</h3>
+            <p>Директор парка @Model.Contacts.AdministratorFIO т. @Model.Contacts.PhoneNumber</p>
+            <p>Зам. директора @Model.Contacts.AdministratorFIOZam т. @Model.Contacts.PhoneNumberZam (звонить пн-пт с 8:00 до 17:00)</p>
+            <p>Приемный день по личным вопросам: Вторник 10:00-11:00</p>
+        </div>
+    </div>
+</div>
+<div style="height: 100px;"></div>
+<!-- Footer -->

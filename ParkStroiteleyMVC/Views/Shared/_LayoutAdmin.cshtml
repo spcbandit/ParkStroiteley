@@ -1,0 +1,61 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/admin/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/admin/css/datatables.min.css">
+    <link rel="stylesheet" href="~/admin/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/admin/css/bootadmin.min.css">
+    <link rel="stylesheet" href="~/admin/css/style.css">
+
+    <title>Панель управления</title>
+</head>
+<body class="bg-light" style="position: relative;">
+    <div class="sidebar sidebar-dark btn-dark toggled" style="position: fixed; z-index: 1000; top: 42px;">
+        <ul class="list-unstyled" style="position: sticky;">
+            <li><a href="/Admin"><i class="fa fa-fw fa-flag"></i> Главная</a></li>
+            <li><a href="/Admin/Users"><i class="fa fa-fw fa-user"></i> Пользователи</a></li>
+            <li><a href="/Admin/News"><i class="fa fa-fw fa-newspaper"></i> Новости</a></li>
+            <li><a href="/Admin/Gallery"><i class="fa fa-fw fa-edit"></i>Галерея</a></li>
+            <li><a href="/Admin/Contacts"><i class="fa fa-fw fa-table"></i> Контакты</a></li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-expand navbar-dark bg-info sticky-top pt-1 pb-1">
+        <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+        <a class="navbar-brand" href="/">Parkorsk</a>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a  class="nav-link"><i class="fa fa-envelope"></i></a></li>
+                <li class="nav-item"><a  class="nav-link"><i class="fa fa-bell"></i></a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" id="dd_user" class="nav-link" ><i class="fa fa-user"></i> admin</a>
+                  @*<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+                        <a class="dropdown-item">Выйти</a>@* dropdown-toggle data-toggle="dropdown"
+                    </div> 
+                      ПОТОМ ВЕРНУТЬ ОБРАТНО
+                        *@ 
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    <script src="~/admin/js/jquery.min.js"></script>
+    <script src="~/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="~/admin/js/datatables.min.js"></script>
+    <script src="~/admin/js/moment.min.js"></script>
+    <script src="~/admin/js/fullcalendar.min.js"></script>
+    <script src="~/admin/js/bootadmin.min.js"></script>
+    <script src="~/admin/js/sweetalert.js"></script>
+    <script src="~/admin/js/main.js"></script>
+    <script src="~/admin/js/gallery.js"></script>
+</body>
+</html>
+

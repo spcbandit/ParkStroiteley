@@ -1,0 +1,56 @@
+﻿@{ Layout = null; }
+@*model ParkStroiteleyMVC.Models.ModelPages.IndexModel;*@
+@using ParkStroiteleyMVC.Models.Extensions;
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/admin/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/admin/css/datatables.min.css">
+    <link rel="stylesheet" href="~/admin/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/admin/css/bootadmin.min.css">
+    <title>Авторизация</title>
+</head>
+<body class="bg-light" style="height: 100vh;">
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="m-2">
+                <h1 class="text-center mb-4">Авторизация</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <p class="text-center">Для входа в панель управления укажите имя пользователя и пароль</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Имя пользоватля">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Пароль">
+                            </div>
+                            <div class="row">
+                                <div class="col pr-2">
+                                    <button type="submit" class="btn btn-block btn-primary">Вход</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/admin/js/jquery.min.js"></script>
+    <script src="~/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="~/admin/js/datatables.min.js"></script>
+    <script src="~/admin/js/moment.min.js"></script>
+    <script src="~/admin/js/fullcalendar.min.js"></script>
+    <script src="~/admin/js/bootadmin.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@{ Layout = "_LayoutAdmin"; }
+@model ParkStroiteleyMVC.Models.ModelPages.AdminPages.NewsModel;
+@using ParkStroiteleyMVC.Models.Extensions;
+<div class="p-1" style="max-width: 1200px; margin: 0 auto;">
+    <div class="justify-content-between pb-3 pt-3 pl-1 pr-1" style="display: flex;">
+        <h3 class="">Новости</h3>
+        <button class="btn btn-success" onclick="addnew();">&#10010; Новая новость</button>
+    </div>
+    <div class="row m-0">
+        @foreach (var item in Model.Previews)
+        {
+            <div class="col-xl-4 col-lg-4 col-md-6 p-1">
+                <div class="card">
+                    @if (!String.IsNullOrEmpty(item.Image))
+                    { 
+                        <img class="card-img-top" src="~/images/@item.Image" alt="Изображение не загружено">
+                    }
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>@item.DatePublish.ToShortDateString()</span>
+                            <span>@item.Type.GetEnumMemberAttributeValue()</span>
+                        </div>
+                        <h5 class="card-title text-center">@item.Header</h5>
+                        @if (!String.IsNullOrEmpty(item.Text))
+                        {
+                            <p class="card-text">
+                                @item.Text
+                            </p>
+                        }
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <button type="button" class="btn btn-primary w-50 m-1" onclick="editnew(@item.Id);">✎ Редактировать</button>
+                        <button type="button" class="btn btn-danger w-50 m-1" onclick="delnew(@item.Id);">✖ Удалить</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalnew">
+    <div class="modal-dialog m-2" style="max-width: none;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalnewTitle">Редактор новости</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header bg-white ">
+                        <div class="justify-content-between" style="display: flex;">
+                            <div style="display: flex; align-items: center;">
+                                <strong class="mr-2">Дата </strong>
+                                <input id="newdate" type="date" style="cursor: pointer;">
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <strong class="mr-2">Тип </strong>
+                                <select id="newtype" class="form-control" style="width: auto;">
+                                    <option value="0">Важная</option>
+                                    <option value="1">Ежедневная</option>
+                                    <option value="2">Недельная</option>
+                                    <option value="3">Мероприятие</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="newcontainer"></div>
+                        <div>
+                            <button id="addtextblock"  class="btn btn-secondary mt-2">&#10010; блок текста</button>
+                            <button id="addimageblock" class="btn btn-info mt-2">&#10010; блок изображения</button>
+                            <button id="addvideoblock" class="btn btn-primary mt-2">&#10010; блок видео</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="$('#modalnew').modal('hide');">Закрыть</button>
+                <button type="button" class="btn btn-success" onclick="sendnew();">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="imagesform" style="display: none;" method="post" enctype="multipart/form-data">
+    <input value="123" name="head" />
+</form>
